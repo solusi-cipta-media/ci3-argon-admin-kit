@@ -7,7 +7,7 @@
  * Anda bisa menggunakan `->count_all()` untuk menghasilkan response `recordsTotal`
  * 
  */
-class DatatableQuery extends CI_Model
+class DatatableQuery
 {
   var $table;
   var $column;
@@ -38,8 +38,6 @@ class DatatableQuery extends CI_Model
     $this->joinq = $join;
     $this->group_by = $group_by;
     $this->like = $like;
-
-    parent::__construct('user', 'id');
   }
 
   private function _get_datatables_query()
