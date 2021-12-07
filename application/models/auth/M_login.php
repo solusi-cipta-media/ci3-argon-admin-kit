@@ -2,7 +2,7 @@
 
 class M_login extends CI_Model
 {
-  function submit($username, $password): object|null
+  function submit($username, $password)
   {
     $result = $this->db->get_where("user", [
       "username" => $username,

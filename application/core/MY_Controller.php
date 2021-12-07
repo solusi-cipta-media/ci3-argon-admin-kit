@@ -58,7 +58,7 @@ class SCM_Auth extends SCM_Controller
     else return false;
   }
 
-  function _get_user_login(): object|null
+  function _get_user_login()
   {
     return $this->session->userdata("user_login");
   }
