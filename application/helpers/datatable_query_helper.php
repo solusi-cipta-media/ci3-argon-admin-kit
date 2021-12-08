@@ -18,6 +18,9 @@ class DatatableQuery
   var $group_by;
   var $like;
 
+  var $ci;
+  var $db;
+
   function __construct(
     string $table,
     array $column_order = [],
@@ -38,6 +41,9 @@ class DatatableQuery
     $this->joinq = $join;
     $this->group_by = $group_by;
     $this->like = $like;
+    $this->ci = &get_instance();
+    $this->ci->load->database();
+    $this->db = $this->ci->db;
   }
 
   private function _get_datatables_query()
