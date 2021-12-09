@@ -43,7 +43,7 @@ class DatatableQuery
     }
 
     foreach ($this->joinq as $key => $value) {
-      $this->db->join($value);
+      $this->db->join($value[0], $value[1], isset($value[2]) ? $value[2] : "left");
     }
 
     foreach ($this->likeQ as $key => $value) {
@@ -224,7 +224,7 @@ class DatatableQuery
   }
 
   /**
-   * digunakan untuk mengolah data urut dari kiri ke kanan. Jika anda menambahkan sesuatu bukan dengan nama kolom, maka anda sistem akan mendeteksi sebagai custom. jika anda menambahkan custom string, anda bisa menambahkan variable column dengan `:nama_column`
+   * digunakan untuk mengolah data urut dari kiri ke kanan. Jika anda menambahkan sesuatu bukan dengan nama kolom, maka sistem akan mendeteksi sebagai custom. jika anda menambahkan custom string, anda bisa menambahkan variable column dengan `:nama_column`, dan numbering dengan `{numbering}`
    */
   public function get_data_sort_by(array $column)
   {
@@ -244,8 +244,10 @@ class DatatableQuery
           $row[] = $value[$v];
         elseif ($v == "{numbering}") :
           $row[] = $no;
+        elseif (str_contains($v, 'replace-data:')) :
+          $row[] = $this->dt_str_replace($v, $value);
         else :
-          $row[] = $this->dt_regex($v);
+          $row[] = $this->dt_regex($v, $value);
         endif;
       }
 
@@ -255,13 +257,35 @@ class DatatableQuery
     return $result;
   }
 
+  /**
+   * untuk sumary bedasarkan filter datatable
+   */
   public function get_sum_row(string $sum_select, string $sum_group_by)
   {
     $this->_get_datatables_query($sum_select, $sum_group_by);
     return $this->db->get()->row();
   }
 
-  private function dt_regex(string $v)
+  private function dt_str_replace($str, $value)
+  {
+    $data = explode("|", $str);
+    $key = explode(":", $data[0])[1];
+
+    $result = "";
+
+    foreach ($data as $k => $v) {
+      if (!str_contains($v, "replace-data:")) {
+        $forif = explode("=", $v);
+        if ($value[$key] == $forif[0]) {
+          $result = $forif[1];
+        }
+      }
+    }
+
+    return $result;
+  }
+
+  private function dt_regex(string $v, array $value)
   {
     preg_match_all('/:([A-Z|a-z|0-9]+)/', $v, $matches);
     $q = $matches[0];

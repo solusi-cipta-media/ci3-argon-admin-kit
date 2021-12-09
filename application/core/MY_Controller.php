@@ -2,7 +2,9 @@
 class SCM_Controller extends CI_Controller
 {
   var $req;
-  var $response;
+  var $res;
+  var $dt;
+  var $dq;
   function __construct()
   {
     parent::__construct();
@@ -10,29 +12,9 @@ class SCM_Controller extends CI_Controller
     $this->load->helper("response");
     $this->load->helper("datatable_query");
     $this->req = new RequestHelper();
-    $this->response = new ResponseHelper();
-  }
-
-  function _datatableQ(
-    string $table,
-    array $column_order = [],
-    array $default_order = array('user.id' => 'desc'),
-    string $select = null,
-    array $join = [],
-    array $where = [],
-    array $like = [],
-    string $group_by = null,
-  ): DatatableQuery {
-    return new DatatableQuery(
-      $table,
-      $column_order,
-      $default_order,
-      $select,
-      $join,
-      $where,
-      $like,
-      $group_by,
-    );
+    $this->res = new ResponseHelper();
+    $this->dt = new DatatableQuery();
+    $this->dq = new QueryDBHelper();
   }
 }
 

@@ -20,7 +20,7 @@ class Login extends SCM_Controller
       unset($result->password);
       $this->session->set_userdata("user_login", $result);
 
-      $this->response->json200("oke");
-    } else $this->response->json(401, "login failed!");
+      $this->res->json200("oke");
+    } else $this->res->json(401, "login failed!");
   }
 }
