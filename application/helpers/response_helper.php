@@ -11,4 +11,10 @@ class ResponseHelper
     http_response_code($code);
     exit(json_encode($body));
   }
+
+  function forward($code, $body)
+  {
+    http_response_code($code);
+    exit($body);
+  }
 }

@@ -5,73 +5,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Project-title</title>
+  <title>AppSens</title>
   <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-pro" />
   <!-- Favicon -->
   <link rel="icon" href="<?= base_url() ?>public/assets/img/favicon_io/favicon-32x32.png" type="image/png">
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/argon.min5438.css?v=1.2.0" type="text/css">
-  <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/spinner.css" type="text/css">
+  <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/style.css" type="text/css">
 </head>
 
-<body class="bg-primary">
+<body>
   <noscript>Mohon gunakan javascript</noscript>
-  <div class="main-content">
-    <!-- Header -->
-    <div class="header py-5 mb-3">
-      <div class="container mt-4">
-        <div class="header-body text-center mb-4">
-          <div class="row justify-content-center">
-            <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-              <center>
-                <img src="<?= base_url() ?>public/assets/img/tut.png" alt="" style="max-width: 100px;">
-              </center>
-              <!-- <hr class="my-1"> -->
-              <h1 class="text-white">Project-name</h1>
-              <p class="text-lead text-white">Slogan-bila ada</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div> -->
-    </div>
-    <!-- Page content -->
-    <div class="container mt--6 pb-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
-          <div class="card border-0 mb-0">
+  <div class="main-content bg-image">
+    <div class="container py-5">
+      <div class="row justify-content-center justify-item-center position-relative w-100" style="min-height: 100vh; margin: 0; padding: 0;">
+        <div class="col-lg-12 col-md-12 mx-0 mt-auto mb-auto row">
+          <div class="card border-0 mb-0 col-lg-6 py-4" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
             <div class="card-body px-lg-5 py-lg-3">
-              <div class="text-center text-muted mb-4">
-                <small>E-Library</small>
-              </div>
+              <h4 class="mb-5"> <?php $this->load->view('svg/logo'); ?> AppSens</h4>
 
+              <h1>Login</h1>
+              <p class="mb-4">Log in with your data that you entered during
+                your registration.</p>
               <div class="login-validation">
               </div>
 
               <form role="form" id="form-login">
                 <div class="form-group mb-3">
+                  <label for="username">Username</label>
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input required name="username" class="form-control" placeholder="Username / email" type="text">
+                    <input required name="username" id="username" class="form-control" placeholder="Username / email" type="text">
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="password">Password</label>
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input required name="password" class="form-control" placeholder="Password" type="password">
+                    <input required id="password" name="password" class="form-control" placeholder="Password" type="password">
                   </div>
                 </div>
                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -81,15 +63,29 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                  <button type="submit" class="btn btn-primary my-4 btn-block">Sign in</button>
                 </div>
+                <p class="text-center">Don't have account? <a href="#">Sign up</a></p>
+                <p class="text-center"><a href="#">Forgot password?</a></p>
               </form>
+            </div>
+          </div>
+          <div class="card border-0 mb-0 col-lg-6 shadow-none under-sm-d-none" style="background: rgba(55, 84, 219, 0.57);backdrop-filter: blur(20px);border-radius: 0px 15px 15px 0px;">
+            <div class="card-body px-lg-5 py-lg-3 position-relative">
+              <div class="mt-auto d-block text-white position-absolute pb-5" style="height: max-content; bottom: 0;">
+                <h4 class="mb-3"> <?php $this->load->view('svg/logo'); ?> <span class="text-white">AppSens</span></h4>
+                <h1 class="text-white mb-5" style="font-size: 64px; line-height: 1.1;">
+                  Smart <br> Attendance <br> System
+                </h1>
+                <h4 class="text-white">Developed by SCM</h4>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <!-- Footer -->
   <!-- <footer class="py-5 text-center" style="display: block;">
     <div class="copyright text-center text-muted">
@@ -128,7 +124,7 @@
   $(function(e) {
     $("#form-login").on("submit", function(e) {
       e.preventDefault()
-      _sh.setLoading(".login-validation");
+      $(".login-validation").setLoading();
 
       const form = $(this).serialize()
 

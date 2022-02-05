@@ -1,0 +1,115 @@
+@import url(./animation.css);
+@import url(./loading.css);
+
+html, body {
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-image {
+  background-image: url(./images/bg-primary.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+nav.sidenav .nav-link.active {
+  background-color: #4C6FFF !important;
+  color: white !important;
+}
+
+nav.sidenav .nav-link.active i {
+  color: white !important;
+}
+
+.card, .card .card-header, .card .card-footer {
+  border-radius: 16px;
+}
+
+.mx-nav {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.is-invalid {
+  border: 1px solid #F16063;
+}
+
+#content {
+  min-height: 88vh;
+}
+
+.text-shadow-primary {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(50, 50, 93, 0.1);
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.ds-primary {
+  filter: drop-shadow(0px 0.823529px 2.47059px rgba(0, 0, 0, 0.08)) drop-shadow(0px 3.29412px 4.94118px rgba(50, 50, 93, 0.1));
+}
+
+table td {
+  white-space: normal !important;
+}
+
+.select2-selection.select2-selection--single {
+  height: 46px;
+}
+
+.text-danger-light {
+  color: rgba(246, 142, 135, 1);
+}
+
+.text-primary-light {
+  color: rgba(120, 149, 255, 1);
+}
+
+.text-success-light {
+  color: #66CB9F;
+}
+
+.br-8 {
+  border-radius: 8px;
+}
+
+.bg-secondary {
+  background-color: #EBF2FA;
+}
+
+.hover-primary:hover {
+  background-color: #4C6FFF;
+  color: white !important;
+}
+
+@media (max-width: 992px) {
+  .under-sm-d-none {
+    display: none;
+  }
+
+  .mx-nav {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

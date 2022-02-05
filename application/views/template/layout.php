@@ -8,45 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
-  <!-- Extra details for Live View on GitHub Pages -->
-  <!-- Canonical SEO -->
-  <!--  Social tags      -->
-  <meta name="keywords" content="dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, argon, argon ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit, argon dashboard">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <!-- Schema.org markup for Google+ -->
-  <meta itemprop="name" content="Argon - Premium Dashboard for Bootstrap 4 by Creative Tim">
-  <meta itemprop="description" content="Start your development with a Dashboard for Bootstrap 4.">
-
-  <!-- Twitter Card data -->
-  <meta name="twitter:card" content="product">
-  <meta name="twitter:site" content="@creativetim">
-  <meta name="twitter:title" content="Argon - Premium Dashboard for Bootstrap 4 by Creative Tim">
-  <meta name="twitter:description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="twitter:creator" content="@creativetim">
-
-  <!-- Open Graph data -->
-  <meta property="fb:app_id" content="655968634437471">
-  <meta property="og:title" content="Argon - Premium Dashboard for Bootstrap 4 by Creative Tim" />
-  <meta property="og:type" content="article" />
-
-  <meta property="og:description" content="Start your development with a Dashboard for Bootstrap 4." />
-  <meta property="og:site_name" content="Creative Tim" />
+  <title>AppSens</title>
   <!-- Favicon -->
   <link rel="icon" href="<?= base_url() ?>public/assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/argon.min5438.css?v=1.2.0" type="text/css">
-  <!-- Google Tag Manager -->
-  <script>
-
-  </script>
-  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="<?= base_url() ?>public/external-plugin/select2/select2.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -54,11 +30,11 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  <nav class="sidenav navbar navbar-vertical fixed-left mx-nav my-3  navbar-expand-xs navbar-light bg-white" id="sidenav-main" style="border-radius: 16px; min-height: calc(100vh - 2rem);">
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header  d-flex  align-items-center">
-        <a class="navbar-brand" href="dashboard.html">
+        <a class="navbar-brand" href="dashboard">
           <img src="<?= base_url() ?>public/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
         </a>
         <div class=" ml-auto ">
@@ -84,20 +60,16 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#navbar-dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-dashboards">
-                <i class="ni ni-archive-2 text-green"></i>
-                <span class="nav-link-text">Master</span>
+              <a class="nav-link" href="master/user">
+                <i class="fa fa-users text-green"></i>
+                <span class="nav-link-text">User</span>
               </a>
-              <div class="collapse show" id="navbar-dashboards">
-                <ul class="nav nav-sm flex-column">
-                  <li class="nav-item">
-                    <a href="master/users" class="nav-link">
-                      <span class="sidenav-mini-icon"> U </span>
-                      <span class="sidenav-normal"> Users </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="master/company">
+                <i class="fa fa-building text-orange"></i>
+                <span class="nav-link-text">Perusahaan</span>
+              </a>
             </li>
           </ul>
           <!-- Divider -->
@@ -112,7 +84,7 @@
   <div class="main-content" id="panel">
 
     <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+    <nav class="navbar navbar-top navbar-expand border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
@@ -133,7 +105,7 @@
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
               <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+              <div class="pr-3 sidenav-toggler" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
                   <i class="sidenav-toggler-line"></i>
@@ -147,7 +119,7 @@
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-bell-55"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
@@ -311,7 +283,7 @@
                     <img alt="Image placeholder" src="<?= base_url() ?>public/assets/img/theme/team-4.jpg">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                    <span class="mb-0 text-sm  font-weight-bold"><?= explode(" ", $user->full_name)[0] ?></span>
                   </div>
                 </div>
               </a>
@@ -336,7 +308,7 @@
                   <span>Support</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
+                <a href="<?= base_url('auth/login/logout') ?>" class="dropdown-item">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>
@@ -356,13 +328,22 @@
   <script src="<?= base_url() ?>public/assets/vendor/js-cookie/js.cookie.js"></script>
   <script src="<?= base_url() ?>public/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
   <script src="<?= base_url() ?>public/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-  <!-- Optional JS -->
-  <script src="<?= base_url() ?>public/assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="<?= base_url() ?>public/assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="<?= base_url() ?>public/assets/js/argon.min5438.js?v=1.2.0"></script>
+  <script src="<?= base_url() ?>public/assets/js/nav.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+  <script src="<?= base_url() ?>public/external-plugin/sweetalert2/new/sweetalert2.min.js"></script>
+  <script src="<?= base_url() ?>public/external-plugin/select2/select2.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqIHgemVh7heZGKDaGsS6MRwJrePhY6EM&v=weekly" async></script>
   <!-- Demo JS - remove this in your project -->
-  <script src="<?= base_url() ?>public/assets/js/demo.min.js"></script>
+
   <script>
     // Facebook Pixel Code Don't Delete
   </script>
@@ -416,7 +397,7 @@
   })
 
   function loading(url, after = "") {
-    _sh.setLoading("#content")
+    $("#content").setLoading("40vh")
     $.ajax({
       url: base_url + url,
       type: "GET",
@@ -424,11 +405,14 @@
       async: true,
       cache: false,
       success: function(data) {
-        $("#content").html(data)
+        $("#content").hide()
+          .removeClass("swing-in-left-fwd")
+          .show()
+          .addClass("swing-in-left-fwd").html(data)
         if (after != "none") window.location.hash = after
       },
       error: function(xhr, status, error) {
-        reskara_error_handler(xhr, base_url)
+        _ash.error_req_handler(xhr, base_url)
       }
     })
   }

@@ -18,9 +18,16 @@ class Login extends SCM_Controller
     $result = $this->M_login->submit($data['username'], $data['password']);
     if ($result) {
       unset($result->password);
-      $this->session->set_userdata("user_login", $result);
+      $result->jwt = $this->jwtEncode($result->user_id);
+      $this->session->set_userdata("user_appsens_lite", $result);
 
       $this->res->json200("oke");
     } else $this->res->json(401, "login failed!");
+  }
+
+  public function logout()
+  {
+    $this->session->unset_userdata("user_appsens_lite");
+    redirect(base_url('auth/login'));
   }
 }

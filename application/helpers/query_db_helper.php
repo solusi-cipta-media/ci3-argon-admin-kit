@@ -3,7 +3,7 @@
 class QueryDBHelper
 {
   private $ci;
-  private $db;
+  public $db;
   function __construct()
   {
     $this->ci = &get_instance();
@@ -11,8 +11,14 @@ class QueryDBHelper
     $this->db = $this->ci->db;
   }
 
-  function where($column, $value)
+  function from(string $table)
   {
+    return $this->db->from($table);
+  }
+
+  function where($column, $value = null)
+  {
+    if ($value == null) return $this->db->where($column);
     return $this->db->where($column, $value);
   }
 
@@ -65,5 +71,123 @@ class QueryDBHelper
   function get_where_result_array(string $table, array $where)
   {
     return $this->get_where($table, $where)->result_array();
+  }
+
+  function get_order_by_result(string $table, string $column, string $sort)
+  {
+    $this->db->order_by($column, $sort);
+    return $this->db->get($table)->result();
+  }
+
+  function insert(string $table, array $data)
+  {
+    $this->db->insert($table, $data);
+    return $this->db->insert_id();
+  }
+
+  function insert_batch(string $table, array $data)
+  {
+    $this->db->insert_batch($table, $data);
+  }
+
+  function delete_where(string $table, array $where)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
+
+  function update(string $table, array $data)
+  {
+    $this->db->update($table, $data);
+  }
+
+  function update_where(string $table, array $data, array $where)
+  {
+    $this->db->where($where);
+    $this->db->update($table, $data);
+  }
+
+  function get_limit(string $table, $limit, $offset = null)
+  {
+    if ($offset != null)
+      $this->db->limit($limit, $offset);
+    else $this->db->limit($limit);
+    return $this->db->get($table);
+  }
+
+  function get_order_limit(string $table, string $order, $limit, $offset = null)
+  {
+    $this->db->order_by($order);
+    if ($offset != null)
+      $this->db->limit($limit, $offset);
+    else $this->db->limit($limit);
+    return $this->db->get($table);
+  }
+
+  function get_where_limit(string $table, array $where, $limit, $offset = null)
+  {
+    $this->db->where($where);
+    if ($offset != null)
+      $this->db->limit($limit, $offset);
+    else $this->db->limit($limit);
+    return $this->db->get($table);
+  }
+
+  function get_count($table)
+  {
+    $this->db->from($table);
+    return $this->db->count_all_results();
+  }
+
+  function get_count_where($table, array $where)
+  {
+    $this->db->from($table);
+    $this->db->where($where);
+    return $this->db->count_all_results();
+  }
+
+  function select_join_where(string $select, string $table, array $join, array $where)
+  {
+    $this->db->select($select);
+    $this->db->from($table);
+    foreach ($join as $key => $value) {
+      $this->db->join($value[0], $value[1], isset($value[2]) ? $value[2] : "left");
+    }
+
+    foreach ($where as $key => $value) {
+      $this->db->where($value);
+    }
+  }
+
+  function get_select_join_where(string $select, string $table, array $join, array $where)
+  {
+    $this->select_join_where($select, $table, $join, $where);
+    return $this->db->get();
+  }
+
+  function select_join_where_order(string $select, string $table, array $join, array $where, string $order)
+  {
+    $this->select_join_where($select, $table, $join, $where);
+    $this->db->order_by($order);
+  }
+
+  function get_select_join_where_order(string $select, string $table, array $join, array $where, string $order)
+  {
+    $this->select_join_where($select, $table, $join, $where);
+    $this->db->order_by($order);
+
+    return $this->db->get();
+  }
+
+  function where_order_by(string $table, array $where, array $order_by = ["column", "sort"])
+  {
+    $this->db->from($table);
+    $this->db->where($where);
+    return $this->db->order_by($order_by[0], $order_by[1]);
+  }
+
+  function get_where_order_by(string $table, array $where, array $order_by = ["column", "sort"])
+  {
+    return $this->where_order_by($table, $where, $order_by)->get();
   }
 }
